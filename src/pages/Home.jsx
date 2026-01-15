@@ -2,6 +2,7 @@ import { useAuth } from '../hooks/useAuth'
 import { useTasks } from '../hooks/useTasks'
 import { TaskList } from '../components/Task/TaskList'
 import { DailyQuote } from '../components/Quote/DailyQuote'
+import { Greeting } from '../components/Greeting/Greeting'
 import { Header } from '../components/Layout/Header'
 import './Pages.css'
 
@@ -13,6 +14,7 @@ export function Home() {
     <div className="page-container">
       <Header />
       <div className="page-content">
+        <Greeting />
         <DailyQuote />
         <TaskList
           tasks={tasks}
