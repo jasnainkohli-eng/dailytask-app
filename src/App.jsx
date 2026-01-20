@@ -23,7 +23,22 @@ function ProtectedRoute({ children }) {
 }
 
 function AuthPage() {
+  const { user, loading } = useAuth()
   const [isLogin, setIsLogin] = useState(true)
+
+  if (loading) {
+    return (
+      <div className="loading-screen">
+        <div className="spinner"></div>
+        <p>Loading...</p>
+      </div>
+    )
+  }
+
+  // If the user is already signed in, don't show the auth form.
+  if (user) {
+    return <Navigate to="/" replace />
+  }
 
   return (
     <>
